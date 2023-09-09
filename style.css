@@ -4,12 +4,19 @@
     margin-top: 20px;
     border: 1px solid #E2E6EB;
     border-radius: 3px;
-    padding: 30px;
+    padding: 15px;
 }
 
 .forminner {
     max-width: 470px;
     margin: 0 auto;
+}
+
+.title {
+    font-size: 25px;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 15px;
 }
 
 .form-control-wrap {
@@ -59,8 +66,15 @@ select, input[type="text"], input[type="email"], input[type="number"], input[typ
     width: 200px;
     height: 50px;
     background: #25C055;
+    border-radius: 7px;
+    cursor: pointer;
     margin-top: 10px;
     margin-bottom: 5px;
+    transition-duration: .3s;
+}
+
+.forminner input[type="submit"]:hover {
+    background: #32db66;
 }
 
 .hiden {
@@ -86,4 +100,18 @@ select, input[type="text"], input[type="email"], input[type="number"], input[typ
     margin: 5px 10px;
     font-size: 25px;
     color: #25C055;
+}
+
+@media (max-width: 500px) {
+    body {
+        margin: 3px;
+    }
+    .formwrapper {
+        margin-top: 3px;
+        padding: 20px 5px;
+    }
+    
+    #calc_btn {
+        max-width: 500px;
+    }
 }
