@@ -1,0 +1,89 @@
+.formwrapper {
+    padding: 0;
+    border: none;
+    margin-top: 20px;
+    border: 1px solid #E2E6EB;
+    border-radius: 3px;
+    padding: 30px;
+}
+
+.forminner {
+    max-width: 470px;
+    margin: 0 auto;
+}
+
+.form-control-wrap {
+    
+}
+
+input[type="number"], input[type="tel"] {
+    padding: 0;
+    margin: 0;
+    height: 38px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #E2E6EB;
+    border-radius: 3px;
+    padding-left: 15px;
+    background-color: #F0F4F9;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+select, input[type="text"], input[type="email"], input[type="number"], input[type="tel"] {
+    padding: 0;
+    margin: 0;
+    height: 38px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #E2E6EB;
+    border-radius: 3px;
+    padding-left: 15px;
+    background-color: #F0F4F9;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.formwrapper p {
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+#calc_btn {
+    width: 100%;
+    max-width: 320px;
+}
+
+.forminner input[type="submit"] {
+    border: 0;
+    font-size: 16px;
+    color: #fff;
+    width: 200px;
+    height: 50px;
+    background: #25C055;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.hiden {
+    display: none;
+}
+
+.text-result {
+    background-color: #F0F4F9;
+    padding: 10px 20px;
+}
+
+.text-result__p {
+    font-size: 20px;
+    color: cadetblue;
+}
+
+.text-result__sum {
+    font-size: 27px;
+    color: #0857a5;
+}
+
+.result-square {
+    margin: 5px 10px;
+    font-size: 25px;
+    color: #25C055;
+}
