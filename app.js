@@ -1,79 +1,80 @@
-const inputs = document.querySelectorAll('input');
+const resultElement = document.querySelector('#result')
+const resultElementClean = document.querySelector('#result-clean')
+const input1 = document.querySelector('#input1')
+const input2 = document.querySelector('#input2')
+const input3 = document.querySelector('#input3')
+const input4 = document.querySelector('#input4')
+const submitBtn = document.querySelector('#submit')
+const cleanInput = document.querySelector('#clean')
 
-const inputSquare = document.querySelector('#square');
-const inputCeiling = document.querySelector('#ceiling');
+// Калькулятор
+submitBtn.onclick = function() {
+    const input1Value = +(input1.value)
+    const input2Value = +(input2.value)
+    const input3Value = +(input3.value)
+    const input4Value = +(input4.value)
 
-const inputCalcBtn = document.querySelector('#calc_btn');
+    if(isNaN(input1Value) || isNaN(input2Value) || isNaN(input3Value) || isNaN(input4Value)) {
+        alert('Пожалуйста, введите корректные числовые значения')
+        return; // выходим из функции, чтобы не производить расчеты
+    }
 
-const inputTypeHouse = document.querySelector('[name="type_of_house"]');
-const inputTypeRepair = document.querySelector('[name="type_of_repair"]');
-const inputTypeRedevelopment = document.querySelector('[name="type_of_redevelopment"]');
-const inputTypeDismantling = document.querySelector('[name="type_of_dismantling"]');
-const inputTypeWalls = document.querySelector('[name="type_of_walls"]');
-const inputTypeLoggia = document.querySelector('[name="type_of_loggia"]');
+    const sum1 = input1Value * 8
+    const sum2 = input2Value - input3Value
+    const sum3 = sum1 * sum2
 
-const textResult = document.querySelector('#text-result');
-const textSquare = document.querySelector('#result-square');
-const textCeiling = document.querySelector('#result-ceiling');
-const textSum = document.querySelector('#result-sum');
+    const sum4 = sum1 / 100 * 40
 
+    const sum5 = sum4 * input3Value
+    const sum6 = sum1 * input3Value
+    const sum7 = sum5 + sum6
 
-inputSquare.addEventListener('input', function() {
-    resultSquare = +(inputSquare.value) * 500;
-});
+    const sum8 = sum2 + input3Value
+    const sum9 = sum8 * 40
 
-inputCeiling.addEventListener('input', function() {
-    resultCeiling = +(inputCeiling.value);
-});
+    const sum10 = sum1 / 2 * input4Value
 
-// Переменные
-let result;
-let resultTypeHouse = +(inputTypeHouse.value);
-let resultTypeRepair = +(inputTypeRepair.value);
-let resultTypeRedevelopment = +(inputTypeRedevelopment.value);
-let resultTypeDismantling = +(inputTypeDismantling.value);
-let resultTypeWalls = +(inputTypeWalls.value);
-let resultTypeLoggia = +(inputTypeLoggia.value);
+    const sum = sum3 + sum7 + sum9 + sum10
 
-// Тип помещения
-inputTypeHouse.addEventListener('change', function() {
-    resultTypeHouse = +(inputTypeHouse.value);
-});
-
-// Какой тип ремонта нужен
-inputTypeRepair.addEventListener('change', function() {
-    resultTypeRepair = +(inputTypeRepair.value);
-});
-
-// Нужна ли перепланировка
-inputTypeRedevelopment.addEventListener('change', function() {
-    resultTypeRedevelopment = +(inputTypeRedevelopment.value);
-});
-
-// Нужен ли демонтаж
-inputTypeDismantling.addEventListener('change', function() {
-    resultTypeDismantling = +(inputTypeDismantling.value);
-});
-
-// Нужно ли выравнивать стены
-inputTypeWalls.addEventListener('change', function() {
-    resultTypeWalls = +(inputTypeWalls.value);
-});
-
-// Нужно ли ремонтировать балкон или лоджию
-inputTypeLoggia.addEventListener('change', function() {
-    resultTypeLoggia = +(inputTypeLoggia.value);
-});
-
-
-inputCalcBtn.addEventListener('click', function(e) {
-    e.preventDefault();
+    const sumPercent = sum / 100 * 13
+    const sumClean = sum - sumPercent
     
-    result = resultSquare * resultCeiling * resultTypeHouse * resultTypeRepair * resultTypeRedevelopment * resultTypeDismantling * resultTypeWalls * resultTypeLoggia;
-    
-    textResult.classList.remove('hiden');
-    
-    textSquare.textContent = inputSquare.value + ' кв.м';
-    textCeiling.textContent = inputCeiling.value + ' кв.м';
-    textSum.textContent = result.toFixed(2) + ' руб';
-});
+    if (sum === 0) {
+        resultElement.style.color = ('red')
+        resultElementClean.style.color = ('red')
+        resultElement.textContent = 'Ошибка! Введите коректное значение'
+        resultElementClean.textContent = ''
+    }
+    else if (sum > 0) {
+        resultElement.style.color = ('#333333')
+        resultElementClean.style.color = ('#333333')
+        resultElement.textContent = sum.toFixed(2) + ' ₽'
+        resultElementClean.textContent = 'Чистыми: ' + sumClean.toFixed(2) + ' ₽'
+    }
+}
+
+// Очистить инпуты
+cleanInput.onclick = function() {
+    input1.value = ''
+    input2.value = ''
+    input3.value = ''
+    input4.value = ''
+    resultElement.textContent = ''
+    resultElement.style.color = ('#333333')
+    resultElementClean.textContent = ''
+    resultElementClean.style.color = ('#333333')
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
