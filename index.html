@@ -4,25 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
-    <title>Калькулятор ЗП</title>
+    <title>Онлайн-калькулятор расчета стоимости ремонта</title>
 </head>
 <body>
-    <div class="calculator">
-        <h1 class="title">Калькулятор ЗП</h1>
-        <input type="number" class="form-control" placeholder="Какой у вас тариф? " id="input1">
-        <input type="number" class="form-control" placeholder="Кол-во всех смен" id="input2">
-        <input type="number" class="form-control" placeholder="Кол-во ночных смен" id="input3">
-        <input type="number" class="form-control" placeholder="Кол-во праздничных смен" id="input4">
-        <div class="buttons">
-            <button class="btn" id="submit">Вычислить</button>
-            <button class="btn" id="clean">Очистить</button>
-        </div>
-        <div class="text">
-            <h2 class="subtitle">Результат:</h2>
-            <p class="resultat" id="result"></p>
-            <p class="resultat" id="result-clean"></p>
-        </div>
-    </div>
+
+    <form method="post" class="form" id="form">
+        <input type="hidden" name="form_name" value="Калькулятор" class="form-control" />
+            <div class="formwrapper">
+                <div class="forminner">
+                    <h1 class="title">Калькулятор расчета стоимости ремонта</h1>
+                    <label>Общая площадь м2:</label>
+                    <p>
+                        <span class="form-control-wrap">
+                            <input type="number" name="number" value="" class="form-control" min="20" aria-invalid="false" placeholder="50" id="square" />
+                        </span>
+                    </p> 
+                    <label>Высота потолков м2:</label>
+                    <p>
+                        <span class="form-control-wrap">
+                            <input type="number" name="number" value="" class="form-control" min="2" aria-invalid="false" placeholder="2.5" id="ceiling" />
+                        </span>
+                    </p>
+                    <label>Тип помещения:</label>
+                    <p>
+                        <span class="form-control-wrap">
+                            <select name="type_of_house" class="form-control" aria-invalid="false">
+                                <option value="1.1" name="resale">Вторичка</option>
+                                <option value="1.3">Новостройка</option>
+                                <option value="1.8">Аппартаменты</option>
+                            </select>
+                        </span>
+                    </p>
+                    <label>Какой тип ремонта нужен:</label>
+                    <p>
+                        <span class="form-control-wrap">
+                            <select name="type_of_repair" class="form-control" aria-invalid="false">         
+                                <option value="1.1">Косметический</option>
+                                <option value="1.3">Капитальный</option>
+                                <option value="1.5">Евроремонт</option>
+                                <option value="1.8">Ремонт по дизайн-проекту</option>
+                            </select>
+                        </span>
+                    </p>                       
+                    <label>Нужна ли перепланировка</label>
+                    <p>
+                        <span class="form-control-wrap">
+                            <select name="type_of_redevelopment" class="form-control" aria-invalid="false">
+                                <option value="1.2">Да</option>
+                                <option value="1">Нет</option>
+                            </select>
+                        </span>
+                    </p>                    
+                    <label>Нужен ли демонтаж</label>
+                    <p>
+                        <span class="form-control-wrap">
+                            <select name="type_of_dismantling" class="form-control" aria-invalid="false">
+                                <option value="1.05">Да</option>
+                                <option value="1">Нет</option>
+                            </select>
+                        </span>
+                    </p>                   
+                    <label>Нужно ли выравнивать стены</label>
+                    <p>
+                        <span class="form-control-wrap">
+                            <select name="type_of_walls" class="form-control" aria-invalid="false">
+                                <option value="1.2">Да</option>
+                                <option value="1.6">Нет</option>
+                            </select>
+                        </span>
+                    </p>                  
+                    <label>Нужно ли ремонтировать балкон или лоджию</label>
+                    <p>
+                        <span class="form-control-wrap">
+                            <select name="type_of_loggia" class="form-control" aria-invalid="false">
+                                <option value="1.2">Да</option>
+                                <option value="1">Нет</option>
+                            </select>
+                        </span>
+                    </p>                   
+                    <p>
+                        <input type="submit" value="Рассчитать смету" class="form-control" id="calc_btn">
+                    </p>
+                    <div class="text-result hiden" id="text-result">
+                        <p class="text-result__p">Общая площадь<span class="result-square" id="result-square"></span></p>
+                        <p class="text-result__p">Высота потолков<span class="result-square" id="result-ceiling"></span></p>
+                        <p class="text-result__sum">Сумма:<span class="result-square" id="result-sum"></span></p>
+                    </div>
+                </div>
+            </div>
+    </form>
     <script src="app.js"></script>
 </body>
 </html>
