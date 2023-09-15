@@ -69,47 +69,60 @@ inputTypeLoggia.addEventListener('change', function() {
 inputCalcBtn.addEventListener('click', function(e) {
     e.preventDefault();
     
-    if (inputSquare.value === ''){
+    // Функции для бордера input red
+    function inputCeilingRed() {
+        inputCeiling.style.border = ('1px solid red');
+    };
+    function inputSquareRed() {
         inputSquare.style.border = ('1px solid red');
+    };
+    // Функции для бордера input black
+    function inputSquareBlack() {
+        inputSquare.style.border = ('1px solid #E2E6EB');
+    };
+    function inputCeilingBlack() {
+        inputCeiling.style.border = ('1px solid #E2E6EB');
+    };
+    
+    if (inputSquare.value === ''){
+        inputSquareBlack();
         if (inputCeiling.value <= 0){
-            inputCeiling.style.border = ('1px solid red');
+            inputCeilingRed();
         }
             else if (inputCeiling.value === ''){
-            inputCeiling.style.border = ('1px solid red');
+                inputCeilingRed()
             }
             else if (inputCeiling.value > 0){
-                inputCeiling.style.border = ('1px solid #E2E6EB');
-            }
-        
-    }
+                inputCeilingBlack();
+            }       
+    };
     
     if (inputSquare.value === ''){
-        inputSquare.style.border = ('1px solid red');
+        inputSquareRed();
     }
     else if (inputSquare.value <= 0){
-        inputSquare.style.border = ('1px solid red');
-        inputSquare.style.border = ('1px solid #E2E6EB');
+        inputSquareRed();
+        inputSquareBlack();
     }
 
-    
     else if (inputCeiling.value === ''){
-        inputCeiling.style.border = ('1px solid red');
-        inputSquare.style.border = ('1px solid #E2E6EB');
+        inputCeilingRed();
+        inputSquareBlack();
     }
     else if (inputCeiling.value <= 0){
-        inputCeiling.style.border = ('1px solid red');
-        inputSquare.style.border = ('1px solid #E2E6EB');
+        inputCeilingRed();
+        inputSquareBlack();
     }
     
     else if (inputCeiling.value > 0){
-        inputCeiling.style.border = ('1px solid #E2E6EB');
-        inputSquare.style.border = ('1px solid #E2E6EB');
+        inputCeilingBlack();
+        inputSquareBlack();
         result = resultSquare * resultCeiling * resultTypeHouse * resultTypeRepair * resultTypeRedevelopment * resultTypeDismantling * resultTypeWalls * resultTypeLoggia;
 
         textResult.classList.remove('hiden');
         
-        inputSquare.style.border = ('1px solid #E2E6EB');
-        inputCeiling.style.border = ('1px solid #E2E6EB');
+        inputSquareBlack();
+        inputCeilingBlack();
 
         textSquare.textContent = inputSquare.value + ' кв.м';
         textCeiling.textContent = inputCeiling.value + ' кв.м';
