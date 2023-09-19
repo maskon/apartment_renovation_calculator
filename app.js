@@ -71,10 +71,10 @@ inputCalcBtn.addEventListener('click', function(e) {
     
     // Функции для бордера input red
     function inputCeilingRed() {
-        inputCeiling.style.border = ('1px solid red');
+        inputCeiling.style.border = ('2px solid red');
     };
     function inputSquareRed() {
-        inputSquare.style.border = ('1px solid red');
+        inputSquare.style.border = ('2px solid red');
     };
     // Функции для бордера input black
     function inputSquareBlack() {
