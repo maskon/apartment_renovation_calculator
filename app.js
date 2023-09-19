@@ -115,6 +115,7 @@ inputCalcBtn.addEventListener('click', function(e) {
     }
     
     else if (inputCeiling.value > 0){
+        
         inputCeilingBlack();
         inputSquareBlack();
         result = resultSquare * resultCeiling * resultTypeHouse * resultTypeRepair * resultTypeRedevelopment * resultTypeDismantling * resultTypeWalls * resultTypeLoggia;
@@ -127,5 +128,11 @@ inputCalcBtn.addEventListener('click', function(e) {
         textSquare.textContent = inputSquare.value + ' кв.м';
         textCeiling.textContent = inputCeiling.value + ' кв.м';
         textSum.textContent = result.toFixed(2) + ' руб';
-    }   
+    }
+    
+     // Код для скроллинга до низа страницы
+        window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: 'smooth'
+        });
 });
