@@ -84,51 +84,82 @@ inputCalcBtn.addEventListener('click', function(e) {
         inputCeiling.style.border = ('1px solid #E2E6EB');
     };
     
-    if (inputSquare.value === ''){
-        inputSquareBlack();
-        if (inputCeiling.value <= 0){
-            inputCeilingRed();
-        }
-            else if (inputCeiling.value === ''){
-                inputCeilingRed()
-            }
-            else if (inputCeiling.value > 0){
-                inputCeilingBlack();
-            }       
-    };
-    
-    if (inputSquare.value === ''){
-        inputSquareRed();
-    }
-    else if (inputSquare.value <= 0){
-        inputSquareRed();
-        inputSquareBlack();
-    }
-
-    else if (inputCeiling.value === ''){
+    if (inputSquare.value === '' && inputCeiling.value === '') {
         inputCeilingRed();
-        inputSquareBlack();
+        inputSquareRed();
     }
-    else if (inputCeiling.value <= 0){
+    
+    else if (inputSquare.value === '' || inputSquare.value <= 0) {
+        inputSquareRed();
+        inputCeilingBlack();
+    }
+    
+    else if (inputCeiling.value === '' || inputCeiling.value <= 0) {
         inputCeilingRed();
         inputSquareBlack();
     }
     
-    else if (inputCeiling.value > 0){
-        
+    else {
         inputCeilingBlack();
         inputSquareBlack();
         result = resultSquare * resultCeiling * resultTypeHouse * resultTypeRepair * resultTypeRedevelopment * resultTypeDismantling * resultTypeWalls * resultTypeLoggia;
 
         textResult.classList.remove('hiden');
         
-        inputSquareBlack();
-        inputCeilingBlack();
+//        inputSquareBlack();
+//        inputCeilingBlack();
 
         textSquare.textContent = inputSquare.value + ' кв.м';
         textCeiling.textContent = inputCeiling.value + ' кв.м';
         textSum.textContent = result.toFixed(2) + ' руб';
     }
+
+    
+//    if (inputSquare.value === ''){
+//        inputSquareBlack();
+//        if (inputCeiling.value <= 0){
+//            inputCeilingRed();
+//        }
+//            else if (inputCeiling.value === ''){
+//                inputCeilingRed()
+//            }
+//            else if (inputCeiling.value > 0){
+//                inputCeilingBlack();
+//            }       
+//    };
+//    
+//    if (inputSquare.value === ''){
+//        inputSquareRed();
+//    }
+//    else if (inputSquare.value <= 0){
+//        inputSquareRed();
+//        inputSquareBlack();
+//    }
+//
+//    else if (inputCeiling.value === ''){
+//        inputCeilingRed();
+//        inputSquareBlack();
+//    }
+//    else if (inputCeiling.value <= 0){
+//        inputCeilingRed();
+//        inputSquareBlack();
+//    }
+//    
+//    else if (inputCeiling.value > 0){
+//        
+//        inputCeilingBlack();
+//        inputSquareBlack();
+//        result = resultSquare * resultCeiling * resultTypeHouse * resultTypeRepair * resultTypeRedevelopment * resultTypeDismantling * resultTypeWalls * resultTypeLoggia;
+//
+//        textResult.classList.remove('hiden');
+//        
+//        inputSquareBlack();
+//        inputCeilingBlack();
+//
+//        textSquare.textContent = inputSquare.value + ' кв.м';
+//        textCeiling.textContent = inputCeiling.value + ' кв.м';
+//        textSum.textContent = result.toFixed(2) + ' руб';
+//    }
     
      // Код для скроллинга до низа страницы
         window.scrollTo({
